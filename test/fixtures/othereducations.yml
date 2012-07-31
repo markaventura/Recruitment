@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: MyString
+  schoolname: MyString
+  course: MyString
+  dateattendedfrom: MyString
+  dateattendedto: MyString
+  monthfrom: MyString
+  monthto: MyString
+
+two:
+  user_id: MyString
+  schoolname: MyString
+  course: MyString
+  dateattendedfrom: MyString
+  dateattendedto: MyString
+  monthfrom: MyString
+  monthto: MyString

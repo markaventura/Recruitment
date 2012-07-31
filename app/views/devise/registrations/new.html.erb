@@ -1,0 +1,73 @@
+
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+  p.small {line-height:100%;}
+  table.shadow {
+  -webkit-box-shadow: 0 8px 6px -6px black;
+     -moz-box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;
+      }
+  </style>
+</head>
+<body><br/><br/><br/><br/><br/>
+
+<table class="shadow13" width="850" border="0" cellpading="0" cellspacing="0">
+  <tr>
+    <td>
+
+  <div align="center">
+<br/><table class="shadow6">
+  <tr>
+    <td width="800" height="30"><font color="#F1F7CE">&nbsp;<%= link_to "Home", homes_path, :class => 'mylink' %></font>
+    </td>
+  </tr>
+</table>
+<table class="shadow7" width="800">
+  <tr>
+    <td width="600px" align="center">
+      <h2>To join Gabillionaires, sign up below...it's free!</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <font color="red"><%= devise_error_messages! %></font>
+
+  <table>
+    <tr>
+      <td align="right"><%= f.label :email %>
+      </td>
+      <td><%= f.email_field :email, :class => "tbox"  %>
+      </td>
+    </tr>
+    <tr>
+      <td align="right"><%= f.label :password %>
+      </td>
+      <td><%= f.password_field :password, :class => "tbox"  %>
+      </td>
+    </tr>
+    <tr>
+      <td align="right"><%= f.label :password_confirmation %>
+      </td>
+      <td><%= f.password_field :password_confirmation, :class => "tbox"  %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td align="right"><%= f.submit "Join Gabillionaires", :class=> "submit" %>
+      </td>
+    </tr>
+  </table>
+<% end %>
+<br />
+<font size="2">Already on gabillionaires?<%= render "devise/shared/links" %>
+    
+    </td>
+  </tr>
+</table>
+<br/>
+ </td>
+  </tr>
+</table>
+</body>
+</div>

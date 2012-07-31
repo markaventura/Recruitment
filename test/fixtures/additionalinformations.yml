@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: MyString
+  website1: MyString
+  website2: MyString
+  website3: MyString
+  interest: MyString
+  groupandassociations: MyString
+  honorsandawards: MyString
+
+two:
+  user_id: MyString
+  website1: MyString
+  website2: MyString
+  website3: MyString
+  interest: MyString
+  groupandassociations: MyString
+  honorsandawards: MyString

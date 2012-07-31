@@ -1,0 +1,17 @@
+<h1>Welcome to the dashboard</h1>
+
+	<% if employee_signed_in? %>
+	Signed in as <%= current_employee.email %>. Not you?
+	<%= link_to "sign out", destroy_employee_session_path, :method => :delete %>
+	<% flash.each do |name, msg| %>
+	<%= content_tag :div, msg, :id => "flash_#{name}" %>
+	<% end %>
+	<br/>
+	testing
+
+	<% else %>
+	<%= link_to "Sign up", new_employee_registration_path %> or <%= link_to "sign in", new_employee_session_path %>
+	<% flash.each do |name, msg| %>
+	<%= content_tag :div, msg, :id => "flash_#{name}" %>
+	<% end %>
+	<% end %>

@@ -1,0 +1,35 @@
+<table style="border:2px #C0C0C0 solid">
+			<tr>
+				<td width="600">
+					<font color="gray">Basic Info</font>
+					<hr noshade color="#544E4F"/>
+					
+							<table border="0">
+
+								<% @basicinfos.each do |profile| %>
+								<% if profile.user_id.to_i == current_employee.id %>
+									<td>
+										<table border="1">
+											<tr>
+												<td>
+													<%= image_tag profile.photo.url %>
+												</td>
+											</tr>
+										</table>
+										
+									</td>
+									<td>
+										<div style="font-size:32px"><font face="Times New Roman">
+										<%= profile.firstname %> <%= profile.middlename[0] + "." %> <%= profile.lastname %></font><font size="2"> &nbsp; &nbsp; &nbsp; <%= link_to "Edit", edit_basicinfo_path(profile) %></font></div>
+										<%= profile.currentposition %>
+										<div style="font-size:14px">
+										<font color="gray"><%= profile.country %></font>
+										</div>					
+										<% end %>
+									</td>
+								<% end %>
+							</table>
+					
+				</td>
+			</tr>
+		</table>

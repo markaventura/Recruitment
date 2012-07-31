@@ -1,0 +1,159 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ 
+ *= require_self
+ *= require jquery.ui.core
+ *= require jquery.ui.theme
+ *= require dataTables/src/demo_table_jui
+ *= require_tree .
+ */
+
+.drop {
+   background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   border: 1px solid #ccc;
+   height: 34px;
+}
+
+
+
+hr {
+border: 0;
+color: #9E9E9E;
+background-color: #9E9E9E;
+height: 1px;
+width: 100%;
+text-align: left;
+}
+ .tbox {   
+    padding:8px 8px; 
+    border: solid 1px #D0D0D0;  
+    outline: 0;  
+    font: normal 13px/100% Verdana, Tahoma, sans-serif;  
+    width: 200px;  
+    background: #FFFFFF url('bg_form.png') left top repeat-x;  
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));  
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);  
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    }  
+
+.tbox2 {   
+    padding:8px 8px; 
+    border: solid 1px #D0D0D0;  
+    outline: 0;  
+    font: normal 13px/100% Verdana, Tahoma, sans-serif; 
+    background: #FFFFFF url('bg_form.png') left top repeat-x;  
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));  
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);  
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    }  
+
+input:hover, textarea:hover,  
+input:focus, textarea:focus {   
+    border-color: #C9C9C9;   
+    -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;  
+    } 
+
+.submit {  
+    width: auto;  
+    padding: 9px 15px;  
+    background-image: url(../images/plus.png), -webkit-gradient(linear, left top, left bottom, from(#B3C561), to(#86AD00));
+    border-radius:5px 5px 5px 5px; 
+    border: 0;  
+    color: #ffffff;
+    font-size: 14px;  
+    -moz-border-radius: 5px;  
+    -webkit-border-radius: 5px; 
+    }  
+
+.submit:hover {
+	background-color: #87CEFA;
+}
+
+.shadow{
+	background-image: url(../images/plus.png), -moz-linear-gradient(top,  #cbe3ba,  #a6cc8b);
+    background-image: url(../images/plus.png), -webkit-gradient(linear, left top, left bottom, from(#cbe3ba), to(#a6cc8b));
+   
+    border-radius:10px 10px 10px 10px;
+    
+    }
+
+.shadow2{
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0.4)));
+    border-radius:10px 10px 10px 10px;
+}
+
+.shadow3{
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1)));
+    border-radius:10px 10px 0px 0px;
+}
+
+.shadow4{
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1)));
+    border-radius:0px 0px 0px 0px;
+}
+
+.shadow5{
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1)));
+    border-radius:0px 0px 10px 10px;
+}
+
+.shadow6{
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(144,184,65,1)), color-stop(100%,rgba(86,109,46,1)));
+    border-radius:20px 20px 0px 0px;
+}
+
+.shadow7{
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1)));
+    border-radius:0px 0px 20px 20px;
+}
+
+.shadow8{
+    
+    border-radius:05px 05px 05px 05px;
+}
+
+.shadow9{
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1)));
+    border-radius:0px 0px 20px 20px;
+}
+
+.shadow10{
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1)));
+    border-radius:100px 100px 100px 100px;
+}
+
+.shadow11{
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1)));
+    border-radius:0px 0px 0px 0px;
+}
+
+.shadow12{
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1)));
+    border-radius:0px 0px 10px 10px;
+}
+
+.shadow13{
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.5)), color-stop(100%,rgba(255,255,255,0.5)));
+    border-radius:20px 20px 20px 20px;
+}
+
+.mylink:link {color:#F1F7CE;}
+
+.mylink:visited {color:#F1F7CE}
+
+.mylink:hover {color:#FFFFFF;}  

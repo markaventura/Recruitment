@@ -1,0 +1,28 @@
+ <% flash.each do |key, value| %>
+            <table border="0" cellpading="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#ECF8DB" width="600">
+                   <%= value %>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+        <% end %>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Provider</th>
+    <th>Uid</th>
+  </tr>
+  <% for authentication in @authentications %>
+    <tr>
+      <td><%= authentication.employee_id %></td>
+      <td><%= authentication.provider %></td>
+      <td><%= authentication.uid %></td>
+      <td><%= link_to "Destroy", authentication, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+
+</table>
+

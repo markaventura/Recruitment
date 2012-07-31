@@ -1,0 +1,231 @@
+<html>
+<head>
+	<script type="text/javascript">
+
+   		function optionchangeforcitizenship(){
+    		var change = document.getElementById("mycitizenship").value;
+
+    		if(change.match(/philippines/gi)){
+		    	document.getElementById("citizenshipimg").src = "/images/ph.png";
+		    }else if(change.match(/bahrain/gi)){
+				document.getElementById("citizenshipimg").src = "/images/bh.png";
+			}else if(change.match(/bangladesh/gi)){
+				document.getElementById("citizenshipimg").src = "/images/bng.png";
+			}else if(change.match(/cambodia/gi)){
+				document.getElementById("citizenshipimg").src = "/images/cd.png";
+			}else if(change.match(/chin/gi)){
+				document.getElementById("citizenshipimg").src = "/images/chn.png";
+			}else if(change.match(/india/gi)){
+				document.getElementById("citizenshipimg").src = "/images/in.png";
+			}else if(change.match(/iran/gi)){
+				document.getElementById("citizenshipimg").src = "/images/iran.png";
+			}else if(change.match(/japan/gi)){
+				document.getElementById("citizenshipimg").src = "/images/Japan.png";
+   			}else{
+   				document.getElementById("citizenshipimg").src = "/images/default.png";
+   			}
+   		}
+
+   		function load(){
+    		var change = document.getElementById("mycitizenship").value;
+
+    		if(change.match(/philippines/gi)){
+		    	document.getElementById("citizenshipimg").src = "/images/ph.png";
+		    }else if(change.match(/bahrain/gi)){
+				document.getElementById("citizenshipimg").src = "/images/bh.png";
+			}else if(change.match(/bangladesh/gi)){
+				document.getElementById("citizenshipimg").src = "/images/bng.png";
+			}else if(change.match(/cambodia/gi)){
+				document.getElementById("citizenshipimg").src = "/images/cd.png";
+			}else if(change.match(/chin/gi)){
+				document.getElementById("citizenshipimg").src = "/images/chn.png";
+			}else if(change.match(/india/gi)){
+				document.getElementById("citizenshipimg").src = "/images/in.png";
+			}else if(change.match(/iran/gi)){
+				document.getElementById("citizenshipimg").src = "/images/iran.png";
+			}else if(change.match(/japan/gi)){
+				document.getElementById("citizenshipimg").src = "/images/Japan.png";
+   			}else{
+   				document.getElementById("citizenshipimg").src = "/images/default.png";
+   			}
+   		}
+
+	</script>
+</head>
+<body onload="load()">
+	<table class="shadow13" width="970" border="0" cellpading="0" cellspacing="0">
+	<tr>
+		<td>
+			<div align="center"><br/>
+
+<table>
+	<tr>
+		<td>
+
+
+
+
+<table class="shadow6" height="40" width="600" border="0" cellpading="0" cellspacing="0">
+	<tr>
+		<td width="98"><font color="#F1F7CE">&nbsp;<%= link_to "Home", homes_path, :class => 'mylink' %> | <%= link_to "Profile", empprofiles_path, :class => 'mylink'  %></font>
+		</td>
+	</tr>
+</table>
+
+<table class="shadow12" height="291" width="600" border="0" cellpading="0" cellspacing="0">
+	<tr>
+		<td valign="top" >
+<%= form_for @basicinfo, :html=> { :multipart => true } do |profile| %>
+
+<table>
+		<tr>
+				<h1>Personal Information</h1>
+				<hr noshade color="#544E4F" width="98%"/>
+		</tr>
+		<tr>
+			<td align="right">
+				Phone Number:
+			</td>
+			<td>
+				<%= profile.text_field :phonenumber, :class=>"tbox" %>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				Citizenship
+			</td>
+			<td>
+				<%= profile.text_field :citizenship, :class=>"tbox" %>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<font size="2"><b>Tip:</b>Use commas to separate multiple activities<br><b>Examples:</b> Alpha Phi Omega, Chamber Chorale, Debate Team</font>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				Languages
+			</td>
+			<td>
+				<%= profile.text_area :languages, :size => "26x5", :class=>"tbox2" %>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				Email:
+			</td>
+			<td>
+				<%= profile.text_field :email, :class=>"tbox" %>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				Adress:
+			</td>
+			<td>
+				<%= profile.text_field :address, :class=>"tbox" %>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				City:
+			</td>
+			<td>
+				<%= profile.text_field :city, :class=>"tbox" %>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				State:
+			</td>
+			<td>
+				<%= profile.text_field :state, :class=>"tbox" %>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				Country:
+			</td>
+			<td>
+				<table cellpading="0" cellspacing="0">
+					<tr>
+						<td>
+							<%= profile.text_field :country, :class => "tbox", :onchange => "optionchangeforcitizenship()", :id => "mycitizenship"  %>
+						</td>
+						<td>
+							<img src="" id="citizenshipimg">
+						</td>
+					</tr>
+				</table>	
+				
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				Birthdate:
+			</td>
+			<td>
+				<font size="1">Month: <%= profile.select :birthdatem, Month::MONTHFORBDAY %>
+				Day: <%= profile.select :birthdated, Month::DAY  %>
+				Year: <%= profile.select :birthdatey, Month::DATES %></font>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				Marital Status:
+			</td>
+			<td>
+				<%= profile.text_field :maritalstatus, :class=>"tbox" %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<%= profile.hidden_field :user_id, :value => current_employee.id, :class=>"tbox" %>
+			</td>
+			<td>
+				<%= profile.submit "Save Changes", :class=>"submit" %><font size="2"> or <%= link_to "Go back to Edit My Profile", empprofiles_path %></font>
+			</td>
+		</tr>
+</table>
+<% end %></td>
+	</tr>
+</table>
+
+</td>
+
+<td valign="top">
+<table class="shadow6" height="40" width="300" border="0" cellpading="0" cellspacing="0">
+	<tr>
+		<td width="98" align="center"><font color="#F1F7CE">&nbsp;Did you know?</font>
+		</td>
+	</tr>
+</table>
+<table class="shadow12" height="40" width="300" border="0" cellpading="0" cellspacing="0">
+	<tr>
+		<td>
+			<font size="2"><b>4 Resume Tips You Need to Know to Get Hired</b><br/><br/>
+
+1. Be clear about what you want. State your objective in a concise manner.<br/><br/>
+2. Don’t just list your job skills. List real problems you solved and the measurable results you achieved.<br/><br/>
+3. Showcase your strengths by citing key achievements, appointments or awards you’ve earned.<br/><br/>
+4. And of course, no errors! Have others proofread your resumes and cover letters.<br/><br/>
+
+			</font>
+		</td>
+	</tr>
+	
+</table>
+</td>
+	</tr>
+
+</table><br/>
+</td>
+	</tr>
+</table>
+
+<br/><br/><br/><br/>
+</body>
+</html>
+

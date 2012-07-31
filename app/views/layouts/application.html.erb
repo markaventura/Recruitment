@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recruitment</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="vc-main">
+	<div id="vc-body">
+		<div align="center" class="container">
+		<table border="0">
+			<tr>
+				<td width="900px">
+				<font face="arial">
+				<%= yield %>
+				</font>
+				</td>
+			</tr>
+		</table>
+		</div>
+	</div>
+
+
+</div>
+
+</body>
+</html>
+
+

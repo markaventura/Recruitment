@@ -1,0 +1,66 @@
+<br/><br/><br/><br/><br/><br/>
+<table class="shadow13" width="850" border="0" cellpading="0" cellspacing="0">
+  <tr>
+    <td><br/>
+      <div align="center">
+<table class="shadow6">
+  <tr>
+    <td width="795" height="30"><font color="#F1F7CE">&nbsp;<%= link_to "Home", homes_path, :class => 'mylink' %></font>
+    </td>
+  </tr>
+</table>
+<table class="shadow7" width="800">
+  <tr>
+    <td width="600px" align="center">
+    <h2>Sign in to Gabillionaires</h2>
+     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <table>
+      <tr>
+        <td align="right"><%= f.label :email %>
+        </td>
+        <td><%= f.email_field :email, :class => "tbox"  %>
+        </td>
+      <tr>
+      </tr>
+        <td align="right"><%= f.label :password %>
+        </td>
+        <td><%= f.password_field :password, :class => "tbox"  %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        </td>
+        <td>
+          <% if devise_mapping.rememberable? -%>
+          <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+          <% end -%>
+        </td>
+      </tr>
+      <tr>
+          <td>
+
+          </td>
+          <td align="center">
+            <%= f.submit "Sign in", :class => "submit" %>
+          </td>
+      </tr>
+      <tr>
+        <td colspan="2"> <%= render "devise/shared/links" %><br/>
+        </td>
+      </tr>
+    </table>
+    <div>
+    </div>
+
+    
+
+    
+    <% end %>
+
+   
+    </td>
+  </tr>
+</table><br/>
+  </td>
+  </tr>
+</table>

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  professional: MyString
+  user_id: MyString
+
+two:
+  professional: MyString
+  user_id: MyString

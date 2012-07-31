@@ -1,0 +1,2 @@
+module BasicinfosHelper
+end

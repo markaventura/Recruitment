@@ -1,0 +1,51 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  basicinfo: MyString
+  firstname: MyString
+  middlename: MyString
+  lastname: MyString
+  personal: MyString
+  citizenship: MyString
+  email: MyString
+  birthdate: MyString
+  languages: MyString
+  education: MyString
+  degree: MyString
+  school: MyString
+  schoollocation: MyString
+  country: MyString
+  position: MyString
+  title: MyString
+  companyname: MyString
+  description: MyString
+  skill: MyString
+  careersummary: MyString
+  title: MyString
+  companyname: MyString
+  training: MyString
+
+two:
+  basicinfo: MyString
+  firstname: MyString
+  middlename: MyString
+  lastname: MyString
+  personal: MyString
+  citizenship: MyString
+  email: MyString
+  birthdate: MyString
+  languages: MyString
+  education: MyString
+  degree: MyString
+  school: MyString
+  schoollocation: MyString
+  country: MyString
+  position: MyString
+  title: MyString
+  companyname: MyString
+  description: MyString
+  skill: MyString
+  careersummary: MyString
+  title: MyString
+  companyname: MyString
+  training: MyString

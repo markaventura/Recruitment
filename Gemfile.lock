@@ -1,0 +1,197 @@
+GIT
+  remote: git://github.com/rweng/jquery-datatables-rails.git
+  revision: 535d355c85d3a79984cfe310b22aeb9ca05252e6
+  specs:
+    jquery-datatables-rails (1.10.0)
+      jquery-rails
+
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 8110922ed6cb55d2d9d780b36256fef05342b493
+  specs:
+    paperclip (3.1.3)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (>= 0.0.2)
+      mime-types
+
+GIT
+  remote: https://github.com/intridea/omniauth.git
+  revision: f611746401cbc07bfb59c83f248ff00b6048233e
+  specs:
+    omniauth (1.1.0)
+      hashie (~> 1.2)
+      rack
+
+GIT
+  remote: https://github.com/skorks/omniauth-linkedin.git
+  revision: 23d3c26ac423cdef599450abce6397f2ed9dac89
+  specs:
+    omniauth-linkedin (0.0.6)
+      omniauth-oauth (~> 1.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    Ascii85 (1.0.1)
+    actionmailer (3.2.6)
+      actionpack (= 3.2.6)
+      mail (~> 2.4.4)
+    actionpack (3.2.6)
+      activemodel (= 3.2.6)
+      activesupport (= 3.2.6)
+      builder (~> 3.0.0)
+      erubis (~> 2.7.0)
+      journey (~> 1.0.1)
+      rack (~> 1.4.0)
+      rack-cache (~> 1.2)
+      rack-test (~> 0.6.1)
+      sprockets (~> 2.1.3)
+    activemodel (3.2.6)
+      activesupport (= 3.2.6)
+      builder (~> 3.0.0)
+    activerecord (3.2.6)
+      activemodel (= 3.2.6)
+      activesupport (= 3.2.6)
+      arel (~> 3.0.2)
+      tzinfo (~> 0.3.29)
+    activeresource (3.2.6)
+      activemodel (= 3.2.6)
+      activesupport (= 3.2.6)
+    activesupport (3.2.6)
+      i18n (~> 0.6)
+      multi_json (~> 1.0)
+    arel (3.0.2)
+    bcrypt-ruby (3.0.1)
+    best_in_place (1.1.2)
+      jquery-rails
+      rails (~> 3.1)
+    builder (3.0.0)
+    cocaine (0.2.1)
+    coffee-rails (3.2.2)
+      coffee-script (>= 2.2.0)
+      railties (~> 3.2.0)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.3.3)
+    devise (2.1.2)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (~> 3.1)
+      warden (~> 1.2.1)
+    erubis (2.7.0)
+    execjs (1.4.0)
+      multi_json (~> 1.0)
+    formtastic (2.2.1)
+      actionpack (>= 3.0)
+    gmaps4rails (1.5.2)
+    hashie (1.2.0)
+    hike (1.2.1)
+    i18n (0.6.0)
+    journey (1.0.4)
+    jquery-rails (2.0.2)
+      railties (>= 3.2.0, < 5.0)
+      thor (~> 0.14)
+    jquery-ui-rails (1.0.0)
+      jquery-rails
+      railties (>= 3.1.0)
+    json (1.7.3)
+    mail (2.4.4)
+      i18n (>= 0.4.0)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    metaclass (0.0.1)
+    mime-types (1.19)
+    mocha (0.12.1)
+      metaclass (~> 0.0.1)
+    multi_json (1.3.6)
+    nifty-generators (0.4.6)
+    oauth (0.4.6)
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-twitter (0.0.12)
+      multi_json (~> 1.3)
+      omniauth-oauth (~> 1.0)
+    orm_adapter (0.4.0)
+    pdf-reader (1.1.1)
+      Ascii85 (~> 1.0.0)
+      ruby-rc4
+    pg (0.14.0)
+    polyglot (0.3.3)
+    prawn (0.12.0)
+      pdf-reader (>= 0.9.0)
+      ttfunk (~> 1.0.2)
+    rack (1.4.1)
+    rack-cache (1.2)
+      rack (>= 0.4)
+    rack-ssl (1.3.2)
+      rack
+    rack-test (0.6.1)
+      rack (>= 1.0)
+    rails (3.2.6)
+      actionmailer (= 3.2.6)
+      actionpack (= 3.2.6)
+      activerecord (= 3.2.6)
+      activeresource (= 3.2.6)
+      activesupport (= 3.2.6)
+      bundler (~> 1.0)
+      railties (= 3.2.6)
+    railties (3.2.6)
+      actionpack (= 3.2.6)
+      activesupport (= 3.2.6)
+      rack-ssl (~> 1.3.2)
+      rake (>= 0.8.7)
+      rdoc (~> 3.4)
+      thor (>= 0.14.6, < 2.0)
+    rake (0.9.2.2)
+    rdoc (3.12)
+      json (~> 1.4)
+    ruby-rc4 (0.1.5)
+    sass (3.1.20)
+    sass-rails (3.2.5)
+      railties (~> 3.2.0)
+      sass (>= 3.1.10)
+      tilt (~> 1.3)
+    sprockets (2.1.3)
+      hike (~> 1.2)
+      rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
+    thor (0.15.4)
+    tilt (1.3.3)
+    treetop (1.4.10)
+      polyglot
+      polyglot (>= 0.3.1)
+    ttfunk (1.0.3)
+    tzinfo (0.3.33)
+    uglifier (1.2.6)
+      execjs (>= 0.3.0)
+      multi_json (~> 1.3)
+    warden (1.2.1)
+      rack (>= 1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  best_in_place
+  coffee-rails (~> 3.2.1)
+  devise
+  formtastic
+  gmaps4rails
+  jquery-datatables-rails!
+  jquery-rails
+  jquery-ui-rails
+  mocha
+  nifty-generators
+  omniauth!
+  omniauth-linkedin!
+  omniauth-twitter
+  paperclip!
+  pg
+  prawn
+  rails (= 3.2.6)
+  sass-rails (~> 3.2.3)
+  uglifier (>= 1.0.3)

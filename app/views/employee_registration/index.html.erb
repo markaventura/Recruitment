@@ -1,0 +1,18 @@
+<div id="employee_new" align="center">
+	
+	<% if employee_signed_in? %>
+		Signed in as <%= current_employee.email %>. Not you?
+		<%= link_to "sign out", destroy_employee_session_path, :method => :delete %>
+		<% flash.each do |name, msg| %>
+		<%= content_tag :div, msg, :id => "flash_#{name}" %>
+		<% end %>
+		<iframe src="../empprofiles" frameborder="0" scrolling="no" width="1200" height="680"></iframe>
+
+	<% else %>
+		<%= link_to "Sign up", new_employee_registration_path %> or <%= link_to "sign in", new_employee_session_path %>
+		<% flash.each do |name, msg| %>
+		<%= content_tag :div, msg, :id => "flash_#{name}" %>
+		<% end %>
+	<% end %>
+
+</div>

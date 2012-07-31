@@ -1,0 +1,794 @@
+<html>
+<head>
+    <script type="text/javascript">
+
+        function load(){
+            var change = document.getElementById('citizenship').value;
+            alert(change)
+            alert("sds")
+        }
+
+    </script>
+    <style type="text/css">
+
+</style>
+</head>
+<body onload="load()">
+
+        <% counterforsummary = 0 %>
+        <% summarysatisfiedornot = 1 %>
+        <% mycountforsummary = 0 %>
+        <br/>
+        
+        <% if employee_signed_in? %>
+
+<table class="shadow13" width="1000" border="0" cellpading="0" cellspacing="0">
+    <tr>
+        <td><br/><br/>
+        <div id="employee_new" align="center">
+        <table class="shadow6" height="40" width="900" border="0" cellpading="0" cellspacing="0">
+        <tr>
+            <td width="98"><font color="#F1F7CE">&nbsp;<%= link_to "Home", homes_path, :class => 'mylink' %> | </font>
+                <%= link_to "inbox", mymessages_inbox_path(current_employee.id), :class => 'mylink'  %>
+                <% inboxcount = 0 %>
+                <% @inboxes.each do |s| %>
+                    <% inboxcount = inboxcount + 1 %>
+                <% end %>
+            </td>
+            <td>
+                <table cellpading="0" cellspacing="0" border="0">
+                    <tr>
+                        <td>
+                            <table cellpading="0" cellspacing="0" border="0" class="shadow10">
+                                <tr>
+                                    <td width="10"><font size="1"><%= inboxcount %></font>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <font size="1">&nbsp;</font>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td align="right">
+                <font color="#F1F7CE">&nbsp;<%= current_employee.email %> | <%= link_to "sign out", destroy_employee_session_path, :method => :delete, :class => "mylink" %></font>&nbsp;&nbsp;
+            </td>
+        </tr>
+        </table>
+
+        <table class="shadow12" height="120" width="900">
+        <div>
+            <tr>
+                <td>
+                    <font size="5"><b>Tip:</b></font>
+                    <p>Use your resume to sell your strengths: provide specific examples of leadership, successful projects or ways your work significantly impacted the bottom line in your previous jobs.</p>
+                </td>
+            </tr>
+        </div>
+        </table><br/>
+        <% flash.each do |key, value| %>
+            <table border="0" cellpading="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#ECF8DB" width="600">
+                    <img src="/images/check-icon.gif">&nbsp;<%= value %>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+        <% end %>
+        <br/>
+
+        <div align="center">
+        <% notcounteduser = 0 %>
+        <% counteduser=0 %>
+        <% @basicinfos.each do |profile| %>
+            <% if profile.user_id.to_i != current_employee.id %>
+                <% notcounteduser = notcounteduser+1 %>
+            <% end %>
+            <% counteduser=counteduser+1 %>
+        <% end %>
+            
+        <% if notcounteduser==counteduser %>
+            <%= button_to "Edit Your Profile", new_basicinfo_path, :class => "submit" %><br/>
+        <% else %>
+
+<table class="shadow6" height="40" width="900" border="0" cellpading="0" cellspacing="0">
+    <tr>
+        <td height="40">
+            <font color="#F1F7CE">&nbsp;Profile</font>
+        </td>
+    </tr>
+</table>
+<table class="shadow12" height="40" width="900" border="0" cellpading="0" cellspacing="0">
+    <tr>
+        <td>
+
+        
+        <table>
+            <tr>
+                <td width="900">
+                    <font color="gray">Basic Info</font>
+                    <hr noshade color="#544E4F"/>
+                    
+                            <table border="0">
+
+                                <% @basicinfos.each do |profile| %>
+                                <% if profile.user_id.to_i == current_employee.id %>
+                                    <td>
+                                        <table border="0">
+                                            <tr>
+                                                <td>
+                                                    <% if profile.photo_file_name == nil %>
+                                                        <img src="/images/default.jpeg">
+                                                    <% else %>
+                                                        <%= image_tag profile.photo.url %>
+                                                    <% end %>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        
+                                    </td>
+                                    <td>
+                                        <div style="font-size:32px"><font face="Times New Roman">
+                                        <%= profile.firstname %> <%= profile.middlename[0] + "." %> <%= profile.lastname %></font><font size="2"> &nbsp; &nbsp; &nbsp; <%= link_to "Edit", edit_basicinfo_path(profile) %></font></div>
+                                        <%= profile.currentposition %>
+                                        <div style="font-size:14px">
+                                        <font color="gray"><%= profile.country %> | <%= profile.industry %></font>
+                                        </div>                  
+                                        <% end %>
+                                    </td>
+                                <% end %>
+                            </table>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td width="900">
+                    <% @summaries.each do |profile| %>
+                        <% if profile.user_id.to_i == current_employee.id %>
+                        <% mycountforsummary = mycountforsummary+1 %>
+                        <% end %>
+                    <% end %>
+
+                    <font color="gray">Summary</font>
+                    <% if mycountforsummary < 1%>
+                            <font size="2"><%= link_to "+Add Summary", new_summary_path %></font>
+                    <% end %>
+                    <hr noshade color="#544E4F"/>
+                    
+
+                    <% @summaries.each do |profile| %>
+
+                        <% if profile.user_id.to_i == current_employee.id %>
+                                
+                                <table style="table-layout: fixed; width: 100%" border="0">
+                                    <tr>
+                                    <td style="word-wrap: break-word">
+                                        <pre><font face="arial" size="3"><%= profile.professional %></font></pre></td>
+                                    <td valign="top" width="100">
+                                        <font face="arial" size="2">
+                                        <%= link_to "Edit", edit_summary_path(profile) %> | 
+                                        <%= link_to "Remove", profile, :confirm => "Are you sure?", :method => :delete %></font></td>
+                                    </tr>   
+                                </table>
+                        <% end %>
+                    <% end %>
+                    
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td width="900">
+                    <% counterforposition = 0 %>
+                    <font color="gray">Experience
+                            <font size="2"><%= link_to "+Add a Postion", new_experience_path %></font>
+                    </font>
+
+                    <hr noshade color="#544E4F"/>
+
+                    <% @experiences.each do |profile| %>
+                        <% if profile.user_id.to_i == current_employee.id %>
+                            <% if profile.companyname.nil? %>
+                            <% else %>
+                                <table style="table-layout: fixed; width: 100%" border="0">
+                                        <tr>
+                                            <td style="word-wrap: break-word">
+                                                <% if profile.title.empty? %>
+                                                <% else%>
+                                                <b><%= profile.title %></b>
+                                                <br/>
+                                                <% end %>
+
+                                                <% if profile.companyname.empty? %>
+                                                <% else%>
+                                                <b><%= profile.companyname %></b>
+                                                <% end %>
+                                                
+                                                <% if profile.location.empty? %>
+                                                <% else%>
+                                                <br/>
+                                                <%= profile.location %>
+                                                <% end %>
+                                                <font color="#565656">
+                                                <% if profile.timeperiodfrom == nil %>
+                                                <% else%>
+                                                    <br/>
+                                                    <% from_month_value = 0 %>
+                                                    <% to_month_value = 0 %>
+                                                    <%= profile.timeperiodfrom %>
+                                                    <%= profile.timeperiodfromyear%> to
+                                                    <%= profile.timeperiodto%>
+                                                    <%= profile.timeperiodtoyear%>
+
+                                                    <% if profile.timeperiodfrom == "January" %>
+                                                        <% from_month_value = 1 %>
+                                                    <% elsif profile.timeperiodfrom == "February" %>
+                                                        <% from_month_value = 2 %>
+                                                    <% elsif profile.timeperiodfrom == "March" %>
+                                                        <% from_month_value = 3 %>
+                                                    <% elsif profile.timeperiodfrom == "April" %>
+                                                        <% from_month_value = 4 %>
+                                                    <% elsif profile.timeperiodfrom == "May" %>
+                                                        <% from_month_value = 5 %>
+                                                    <% elsif profile.timeperiodfrom == "June" %>
+                                                        <% from_month_value = 6 %>
+                                                    <% elsif profile.timeperiodfrom == "July" %>
+                                                        <% from_month_value = 7 %>
+                                                    <% elsif profile.timeperiodfrom == "August" %>
+                                                        <% from_month_value = 8 %>
+                                                    <% elsif profile.timeperiodfrom == "September" %>
+                                                        <% from_month_value = 9 %>
+                                                    <% elsif profile.timeperiodfrom == "October" %>
+                                                        <% from_month_value = 10 %>
+                                                    <% elsif profile.timeperiodfrom == "November" %>
+                                                        <% from_month_value = 11 %>
+                                                    <% elsif profile.timeperiodfrom == "December" %>
+                                                        <% from_month_value = 12 %>
+                                                    <% end %>
+
+                                                    <% if profile.timeperiodto == "January" %>
+                                                        <% to_month_value = 1 %>
+                                                    <% elsif profile.timeperiodto == "February" %>
+                                                        <% to_month_value = 2 %>
+                                                    <% elsif profile.timeperiodto == "March" %>
+                                                        <% to_month_value = 3 %>
+                                                    <% elsif profile.timeperiodto == "April" %>
+                                                        <% to_month_value = 4 %>
+                                                    <% elsif profile.timeperiodto == "May" %>
+                                                        <% to_month_value = 5 %>
+                                                    <% elsif profile.timeperiodto == "June" %>
+                                                        <% to_month_value = 6 %>
+                                                    <% elsif profile.timeperiodto == "July" %>
+                                                        <% to_month_value = 7 %>
+                                                    <% elsif profile.timeperiodto == "August" %>
+                                                        <% to_month_value = 8 %>
+                                                    <% elsif profile.timeperiodto == "September" %>
+                                                        <% to_month_value = 9 %>
+                                                    <% elsif profile.timeperiodto == "October" %>
+                                                        <% to_month_value = 10 %>
+                                                    <% elsif profile.timeperiodto == "November" %>
+                                                        <% to_month_value = 11 %>
+                                                    <% elsif profile.timeperiodto == "December" %>
+                                                        <% to_month_value = 12 %>
+                                                    <% end %>
+
+                                                    <% countingmonth = 0 %>
+                                                    <% counter = 0 %>
+                                                    <% countingpresent = 0 %>
+
+                                                    <% counterfortotalyears = profile.timeperiodtoyear.to_i - profile.timeperiodfromyear.to_i %>
+
+                                                    <% (1..counterfortotalyears).each do|a| %>
+                                                        <% if profile.timeperiodfromyear < profile.timeperiodtoyear %>
+                                                            <% ((from_month_value+1)..12).each do|i| %>
+                                                                <% countingmonth = countingmonth + 1 %>
+                                                            <% end %>
+                                                        <% end %>
+                                                        <% countingmonth = countingmonth + to_month_value %>
+                                                    <% end %>
+
+                                                    <% if profile.timeperiodfromyear == profile.timeperiodtoyear %>
+                                                        <% counterfortotalmonths = 0 %>
+                                                        <% ((from_month_value+1)..to_month_value).each do|a| %>
+                                                        <% counterfortotalmonths = counterfortotalmonths + 1 %>
+                                                        <% end %>
+                                                        <% if counterfortotalmonths > 1%>
+                                                            <%= counterfortotalmonths %> months
+                                                        <% else %>
+                                                            <%= counterfortotalmonths %> month
+                                                        <% end %>
+                                                        
+                                                    <% end %>
+
+                                                    <% if (countingmonth/12)>1 %>
+                                                        <%= countingmonth/12 %> years
+                                                    <% elsif (countingmonth/12)==0 %>
+
+                                                    <% else %>
+                                                        <%= countingmonth/12 %> year
+                                                    <% end %>
+
+                                                    <% if (countingmonth%12)>1 %>
+
+                                                        <% if (countingmonth/12)==0 %>
+                                                            <%= countingmonth%12 %> months
+                                                        <% else %>
+                                                            <%= countingmonth%12 %> months
+                                                        <% end %>
+
+                                                    <% elsif (countingmonth%12)==0 %>
+                                                    <% if profile.timeperiodto == "Present" %>
+                                                            <% countingpresent = (Time.now.month - from_month_value)  %>
+                                                        
+                                                        <% if countingpresent >= 2 %>
+                                                         &nbsp;<%= countingpresent %> months
+                                                        <% else %>
+                                                         &nbsp;<%= countingpresent %> month
+                                                        <% end %>
+                                                    <% end %>
+
+                                                    <% else %>
+                                                        <%= countingmonth%12 %> month
+                                                    <% end %>
+                                                    </font>
+                                                <% end %>
+                                                <% if profile.description!=nil %>
+                                                    <br/>
+                                                    <pre><font size="3" face="arial"><%= profile.description  %></font></pre>
+                                                <% end %>
+
+                                                
+                                            </td>
+                                            <td valign="top" align="left" width="100">
+                                                <font face="arial" size="2">
+                                                <%= link_to "Edit", edit_experience_path(profile) %> | <%= link_to "Remove", profile, :confirm => "Are you sure?", :method => :delete %></font> 
+                                            </td>
+                                        </tr>
+                                    </table>    
+                            <% end %>
+                            
+                        <% end %>   
+
+                    <% end %>
+
+
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td width="900">
+                    <font color="gray">Skills and Expertise</font>
+                    
+                    <% notcounteduser = 0 %>
+                    <% counteduser=0 %>
+                    <% @skills.each do |profile| %>
+                        <% if profile.user_id.to_i == current_employee.id %>
+                            <% notcounteduser = notcounteduser+1 %>
+                        <% end %>
+                    <% end %>
+                    <% if notcounteduser == 0 %>
+                       <font size="2"> <%= link_to "+Add a skill", new_skill_path %></font>
+                        <hr noshade color="#544E4F"/>
+                    <% else %>
+                    <hr noshade color="#544E4F"/>
+                        <% @skills.each do |profile| %>
+                        
+                            <% if profile.user_id.to_i == current_employee.id %>
+                            <% if profile.skillsandexpertise != nil %>  
+                                <table style="table-layout: fixed; width: 100%" border="0">
+                                    <tr>
+                                        <td style="word-wrap: break-word">
+                                            <pre><font face="arial" size="3"><%= profile.skillsandexpertise %></font></pre>
+                                        </td>
+                                        <td valign="top" width="100">
+                                            <font face="arial" size="2">
+                                            <%= link_to "Edit", edit_skill_path(profile) %> | <%= link_to "Remove", profile, :confirm => "Are you sure?", :method => :delete %></font>
+                                        </td>
+                                    </tr>   
+                                </table>
+                            <% end %>   
+                            <% end %>
+                        <% end %>   
+                    <% end %>
+                    
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td width="900">
+                    <% counterforposition = 0 %>
+                    <font color="gray">Education
+                            <font size="2"><%= link_to "+Add a School", new_education_path %></font>
+                    </font>
+                    <hr noshade color="#544E4F"/>
+
+                    <% @educations.each do |profile| %>
+                        <% if profile.user_id.to_i == current_employee.id %>
+                                    <table style="table-layout: fixed; width: 100%" border="0">
+                                        <tr>
+                                            <td style="word-wrap: break-word">
+                                                <b><%= profile.schoolname %></b>     
+                                                <br/>
+
+                                                <%= profile.degree %><br/>
+                                                
+
+                                                <%= profile.location %>&nbsp;<%= profile.country %><br/>
+                                                <% if profile.datesattendedfrom != nil || profile.datesattendedto != nil %>
+                                                <%= profile.datesattendedfrom %> - <%= profile.datesattendedto %>
+                                                <% end %><br/>
+
+                                                <% if profile.activitiesandsocieties.empty? %>
+                                                
+                                                <% else %>
+                                                <br/>
+                                                <%= profile.activitiesandsocieties %><br/>
+                                                <% end %>
+
+                                                <% if profile.additionalnotes.empty? %>
+                                                <% else %>
+                                                <br/>
+                                                <%= profile.additionalnotes %>
+                                                <% end %>
+                                            </td>
+                                            <td valign="top" align="left" width="50">
+                                                <% imgschool = profile.schoolname.upcase %>
+                                                <% if imgschool == "UNIVERSITY OF THE EAST" %>
+                                                    <img src="/images/ue.png">
+                                                <% else %>
+                                                <% end %>
+                                            </td>
+                                            <td valign="top" align="left" width="100">
+                                                <font face="arial" size="2">
+                                                <%= link_to "Edit", edit_education_path(profile) %> | <%= link_to "Remove", profile, :confirm => "Are you sure?", :method => :delete %></font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br/>
+                        <% end %>   
+
+                    <% end %>
+
+
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td width="900">
+                    <% counterforposition = 0 %>
+                    <font color="gray">Other Trainings/Seminars Attended
+                           <font size="2"> <%= link_to "+Add a Training/Seminar", new_othereducation_path %></font>
+                    </font>
+                    <hr noshade color="#544E4F"/>
+
+                    <% @othereducations.each do |profile| %>
+                        <% if profile.user_id.to_i == current_employee.id %>
+                                     <table style="table-layout: fixed; width: 100%" border="0">
+                                        <tr>
+                                            <td width="780" valign="top">
+                                                
+                                                <b><%= profile.schoolname %></b>
+                                                <br/>
+
+                                                <%= profile.course %>
+                                                <br/>
+                                                <%= profile.monthfrom %>&nbsp;<%= profile.dateattendedfrom %> - <%= profile.monthto %>&nbsp;<%= profile.dateattendedto %>
+                                                
+                                            </td>
+                                            <td valign="top" width="100">
+                                                <font face="arial" size="2">
+                                                <%= link_to "Edit", edit_othereducation_path(profile) %> | <%= link_to "Remove", profile, :confirm => "Are you sure?", :method => :delete %></font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br/>
+                        <% end %>   
+
+                    <% end %>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td width="900">
+                    <font color="gray">Additional Information</font>
+                    
+                    <% notcounteduser = 0 %>
+                    <% @additionalinformations.each do |profile| %>
+                        <% if profile.user_id.to_i == current_employee.id %>
+                            <% notcounteduser = notcounteduser+1 %>
+                        <% end %>
+                    <% end %>
+                    <% if notcounteduser == 0 %>
+                        <font size="2"><%= link_to "+Add Information", new_additionalinformation_path %></font>
+                        <hr noshade color="#544E4F"/>
+                    <% else %>
+                            <% @additionalinformations.each do |profile| %>
+                            <% if profile.user_id.to_i == current_employee.id %>
+                            <% if profile.website1 != nil %>
+                                    <hr noshade color="#544E4F"/>
+                                     <table style="table-layout: fixed; width: 100%" border="0">
+                                        <tr>
+                                            <td valign="top" width="200">
+                                                Websites:&nbsp;&nbsp;&nbsp;<br/><br/>
+                                            </td>
+                                            <td width="580">
+                                                <font face="arial" size="3">
+                                                    <% if profile.website1.empty? %>
+                                                    <% else %>
+                                                    <% sdsds = profile.website1 %>
+                                                        <a href="http://<%= sdsds %>/" target="_blank" ><%= profile.website1 %></a><br/>
+                                                    <% end %>
+
+                                                    <% if profile.website2.empty? %>
+                                                    <% else %>
+                                                        <a href='<%= profile.website2 %>' target="_blank"><%= profile.website2 %></a><br/>
+                                                    <% end %>
+
+                                                    <% if profile.website3.empty? %>
+                                                    <% else %>
+                                                        <a href='<%= profile.website3 %>' target="_blank"><%= profile.website3 %></a><br/>
+                                                    <% end %>
+                                                </font>
+                                            </td>
+                                            <td valign="top" width="100">
+                                                <font face="arial" size="2">
+
+                                                <%= link_to "Edit", edit_additionalinformation_path(profile) %> | <%= link_to "Remove", profile, :confirm => "Are you sure?", :method => :delete %></font>
+                                            </td>
+                                        </tr>   
+
+                                        <tr>
+                                            <td valign="top">
+                                                Interest:&nbsp;&nbsp;&nbsp;
+                                            </td>
+                                            
+                                            <td valign="top">
+                                                <font face="arial" size="2">
+                                                    <% if profile.interest.empty? %>
+                                                    <% else %>
+                                                        <pre><font face="arial" size="2"><%= profile.interest %></font></pre><br/>
+                                                    <% end %><br/><br/>
+                                            </td>
+                                        </tr>   
+                                        <tr>
+                                            <td valign="top">
+                                                Group and Associations:&nbsp;&nbsp;&nbsp;
+                                            </td>
+                                            
+                                            <td valign="top">
+                                                <font face="arial" size="2">
+                                                    <% if profile.groupandassociations.empty? %>
+                                                    <% else %>
+                                                        <pre><font face="arial" size="2"><%= profile.groupandassociations %></font></pre><br/>
+                                                    <% end %>
+                                            </td>
+                                        </tr>   
+                                        <tr>
+                                            <td valign="top">
+                                                Honors and Awards:&nbsp;&nbsp;&nbsp;
+                                            </td>
+                                            
+                                            <td valign="top">
+                                                <font face="arial" size="2">
+                                                    <% if profile.honorsandawards.empty? %>
+                                                    <% else %>
+                                                        <pre><font face="arial" size="2"><%= profile.honorsandawards %></font></pre><br/>
+                                                    <% end %>
+                                            </td>
+                                        </tr>   
+                                    </table>
+                            <% end %><br/>
+                            <% end %>
+                            
+                        <% end %>   
+                    <% end %>
+                    
+                    
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td width="900">
+                    <font color="gray">Personal Information</font>
+                    <hr noshade color="#544E4F"/>
+                    <% @basicinfos.each do |profile| %>
+                        <% if profile.user_id.to_i == current_employee.id %>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <font face="arial" size="3">
+                                                    <tr>
+                                                        <td valign="top" width="200">
+                                                            Phone Number:
+                                                        </td>
+                                                        <td width="580">
+                                                            <%= profile.phonenumber %><br/><br/>
+                                                        </td>
+                                                        <td><font face="arial" size="2">
+                                                            <%= link_to "Edit", editpersonalinfo_basicinfo_path(profile) %> </font>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td valign="top">
+                                                            Citizenship:
+                                                        </td>
+                                                        <td>
+                                                                        <%= profile.citizenship %>
+                                                                        
+                                                                    
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td valign="top">
+                                                            Languages:
+                                                        </td>
+                                                        <td>
+                                                            <%= profile.languages %>
+                                                            <br/><br/>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td valign="top">
+                                                            Email:
+                                                        </td>
+                                                        <td>
+                                                            <%= profile.email %>
+                                                            <br/><br/>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td valign="top">
+                                                            
+                                                            Address:
+                                                        </td>
+                                                        <td width="300">
+                                                            <table cellpading="0" cellspacing="0">
+                                                                <tr>
+                                                                    <td>
+                                                                        <% imgcitizenship = profile.country.upcase %>
+                                                                        <% if imgcitizenship == "PHILIPPINES" %>
+                                                                            <img src="/images/ph.png">
+                                                                        <% elsif imgcitizenship == "BAHRAIN" %>
+                                                                            <img src="/images/bh.png">
+                                                                        <% elsif imgcitizenship == "BANGLADESH" %>
+                                                                            <img src="/images/bng.png">
+                                                                        <% elsif imgcitizenship == "CAMBODI" %>
+                                                                            <img src="/images/cd.png">
+                                                                        <% elsif imgcitizenship == "CHINA" %>
+                                                                            <img src="/images/chn.png">
+                                                                        <% elsif imgcitizenship == "INDIA" %>
+                                                                            <img src="/images/in.png">
+                                                                        <% elsif imgcitizenship == "JAPAN" %>
+                                                                            <img src="/images/Japan.png">
+                                                                        <% elsif imgcitizenship == "IRAN" %>
+                                                                            <img src="/images/iran.png">
+                                                                        <% else %>
+                                                                        <% end %>
+                                                                    </td>
+                                                                    <td>
+                                                                        <%= profile.address + " " + profile.city + " " + profile.country %>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td valign="top">
+                                                            Birthdate:
+                                                        </td>
+                                                        <td>
+                                                            <%= profile.birthdatem %>
+                                                            <%= profile.birthdated %>
+                                                            <%= profile.birthdatey %>
+                                                            <br/><br/>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td valign="top">
+                                                            Marital Status:
+                                                        </td>
+                                                        <td>
+                                                            <%= profile.maritalstatus %><br/><br/>
+                                                        </td>
+                                                    </tr>
+                                                </font>
+                                            </td>
+                                        </tr>   
+                                    </table>
+                            <% end %>
+
+                    <% end %>
+
+                </td>
+            </tr>
+        </table>
+
+        </td>
+    </tr>
+</table><br/><br/>
+<% end %>
+
+</div>
+</td>
+
+    </tr>
+</table>
+<br/><br/><br/><br/>
+
+
+<% else %>
+<br/><br/><br/><br/>
+<table class="shadow13" width="850" border="0" cellpading="0" cellspacing="0">
+    <tr>
+        <td><br/>
+<div align="center">
+
+    <font size="6">Welcome to Gabillionaires</font>
+    <br/>
+    <table class="shadow6" width="800" height="30" border="0">
+        <tr>
+            <td>
+            <font color="#F1F7CE">&nbsp;<%= link_to "Home", homes_path, :class => 'mylink' %></font>
+            </td>
+        </tr>
+    </table>
+    <table class="shadow7" width="800" height="200" border="0"> 
+        <tr>
+            <td align="center" valign="center"><br/>
+                Sign In using LinkedIn
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="center"><br/>
+                <a href="/auth/linkedin"><img src="/images/li.png"/></a>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" height="70" valign="bottom">
+                <form>
+                    
+                    <input type="button" value="Join Today" onclick="parent.location='../employees/sign_up'" class="submit"/>
+                    or <input type="button" value="Sign In" onclick="parent.location='../employees/sign_in'" class="submit"/></font>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" align="center"><br/>
+                You have signed out
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="top">
+                Search over 150M professionals, connect on the go, and get the latest industry news
+            </td>
+        </tr>
+    </table>
+    <table align="center">
+                    <tr>
+                        <td>
+                            <font size="2"><p> AppSource &copy; 2012 | <%= link_to "About", home_about_path(1) %> | <%= link_to "Contact Us", home_contactus_path(1) %></p>  
+                        </td>
+                    </tr>
+    </table>
+    </td>
+    </tr>
+</table>
+</div>
+<% end %>
+
+
+</body>
+
+</html>

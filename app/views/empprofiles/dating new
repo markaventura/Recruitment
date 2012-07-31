@@ -1,0 +1,76 @@
+
+<h1>Basic Information</h1>
+
+<%= form_for @empprofile do |profile| %>
+	<p>
+		<table>
+			<tr>
+				<td>
+					
+					Name
+
+				</td>
+				<td width="650">
+					<hr noshade color="#544E4F"/>
+				</td>
+			</tr>
+		</table>
+		
+	</p>
+
+	<p>
+		<table>
+			<tr>
+				<td align="right" width="120">
+					<%= profile.label "First Name:" %>
+				</td>
+				<td>
+					<%= profile.text_field :firstname %>
+				</td>
+			</tr>
+		</table>
+	</p>
+
+	<p>
+		<table>
+			<tr>
+				<td align="right" width="120">
+					<%= profile.label "Last Name:" %>
+				</td>
+				<td>
+					<%= profile.text_field :lastname %>
+				</td>
+			</tr>
+		</table>
+	</p>
+
+	<p>
+		<table>
+			<tr>
+				<td>
+					Headline
+				</td>
+				<td width="650">
+					<hr noshade color="#544E4F"/>
+				</td>
+			</tr>
+		</table>
+	</p>
+
+	<p>
+		<table>
+			<tr>
+				<td align="right" width="120">
+					<%= profile.label "Current Position:" %>
+				</td>
+				<td>
+					<%= profile.text_field :currentposition %>
+				</td>
+			</tr>
+		</table>
+	</p>
+
+	<p>
+		<%= profile.submit "Save Changes" %> or <%= link_to "Go back to Edit My Profile", empprofiles_path %>
+	</p>
+<% end %>

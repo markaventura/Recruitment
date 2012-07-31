@@ -1,0 +1,78 @@
+<br/><br/><br/>
+<div align="center">
+ <% flash.each do |key, value| %>
+            <table border="0" cellpading="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#ECF8DB" width="600">
+                    <img src="/images/check-icon.gif">&nbsp;<%= value %>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+        <% end %>
+       </div>
+<table class="shadow13" width="900" border="0" cellpading="0" cellspacing="0">
+	<tr>
+		<td>
+			<div align="center"><br/>
+
+<table>
+	<tr>
+		<td>
+
+<table class="shadow6" height="40" width="850" border="0" cellpading="0" cellspacing="0">
+	<tr>
+		<td width="98"><font color="#F1F7CE">&nbsp;<%= link_to "Home", homes_path, :class => 'mylink' %></font>
+		</td>
+	</tr>
+</table>
+
+<table class="shadow12" height="40" width="850" border="0" cellpading="0" cellspacing="0">
+	<tr>
+		<td>
+
+<table id="empprofiles" class="display">
+
+	<thead>
+		<tr>
+			<th>
+				Name
+			</th>
+			<th>
+				Position
+			</th>
+			<th>
+				Country
+			</th>
+			<th>
+				Action
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @basicinfos.each do |profile| %>
+			<% if profile.firstname != nil %>
+			<tr>
+				<td align="center"><%= profile.firstname %>&nbsp;<%= profile.middlename[0] %>.&nbsp;<%= profile.lastname %></td>
+				<td align="center"><%= profile.currentposition %></td>
+				<% myID = profile.user_id %>
+				<td align="center"><%= profile.country %></td>
+				<td align="center"><%= link_to "View", basicinfo_path(myID) %> | <%= link_to "Send Message", sendmessage_inbox_path(profile.id) %></td>
+			</tr>
+			<% end %>
+		<% end %>
+	</tbody>
+	
+</table>
+</td>
+	</tr>
+</table>
+</td>
+</tr>
+
+</table><br/>
+</td>
+	</tr>
+</table>
+
+<br/><br/><br/><br/>

@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript">
+  function optionChange(){
+    var change = document.getElementById('kalamay').value;
+    alert(change)
+    if(change.match(/a/gi)){
+      alert("2")
+      document.getElementById("try").src = "/images/bgbg.png";
+    }
+  }
+
+</script>
+</head>
+<body>
+  <select  onchange="optionCheck()" name="test" id="options" class="primary-btn" style="width:152px; height:25px;">
+           <option value="0">none</option>
+           <option value="1">Personal</option>
+           <option value="2">Educations</option>
+           <option value="3">Postion</option>
+           <option value="4">Skills</option>
+           <option value="5">Career Summary</option>
+           <option value="6">Trainings</option>
+       </select>
+
+  <form>
+    <input type="text" onchange="optionChange()" id="my_text">
+    <%= form_for @template do |template| %>
+              <%= template.text_field :firstname, :onchange => "optionChange()", :id => "kalamay" %>
+            <% end %>
+  </form>
+      
+
+       <div class="div-log1" id="room1">
+        sdsa
+           
+            <img src="" id="try">
+       </div><br><br>
+
+       <div class="div-log1" id="room2" style=visibility:hidden>
+           2
+       </div><br><br>
+
+       <div class="div-log1" id="room3" style=visibility:hidden>
+           3
+       </div>
+</body>
+</html>
+
+
+

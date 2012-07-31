@@ -1,0 +1,100 @@
+<table class="shadow13" width="970" border="0" cellpading="0" cellspacing="0">
+	<tr>
+		<td>
+			<div align="center"><br/>
+
+<table>
+	<tr>
+		<td>
+
+
+
+
+<table class="shadow6" height="40" width="600" border="0" cellpading="0" cellspacing="0">
+	<tr>
+		<td width="98"><font color="#F1F7CE">&nbsp;<%= link_to "Home", homes_path, :class => 'mylink' %> | <%= link_to "Profile", empprofiles_path, :class => 'mylink'  %></font>
+		</td>
+	</tr>
+</table>
+
+<table class="shadow12" height="291" width="600" border="0" cellpading="0" cellspacing="0">
+	<tr>
+		<td valign="top" >
+<%= form_for @othereducation do |profile| %>
+	<h1>Add School</h1>
+	<hr noshade color="#544E4F" width="98%"/>
+	<table>
+		<tr>
+			<td align="right">
+				Training Course:
+			</td>
+			<td>
+				<%= profile.text_field :course, :class => "tbox" %>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				School Name/Venue:
+			</td>
+			<td>
+				<%= profile.text_field :schoolname, :class => "tbox" %>
+			</td>
+			
+		</tr>
+		<tr>
+			<td align="right">
+				Date Attended: 
+			</td>
+			<td>
+				<%= profile.select :monthfrom, Araw::MONTH %><%= profile.select :dateattendedfrom, Araw::DATES %> to <%= profile.select :monthto, Araw::MONTH %><%= profile.select :dateattendedto, Araw::DATES2 %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<%= profile.hidden_field :user_id, :value => current_employee.id %>
+			</td>
+			<td>
+				<%= profile.submit "Save Changes", :class => "submit" %><font size="2"> or <%= link_to "Go back to Edit My Profile", empprofiles_path %></font>
+			</td>
+		</tr>
+		
+</table>
+	
+<% end %>
+</td>
+	</tr>
+</table>
+
+</td>
+
+<td valign="top">
+<table class="shadow6" height="40" width="300" border="0" cellpading="0" cellspacing="0">
+	<tr>
+		<td width="98" align="center"><font color="#F1F7CE">&nbsp;Did you know?</font>
+		</td>
+	</tr>
+</table>
+<table class="shadow12" height="40" width="300" border="0" cellpading="0" cellspacing="0">
+	<tr>
+		<td>
+			<font size="2"><b>4 Resume Tips You Need to Know to Get Hired</b><br/><br/>
+
+1. Be clear about what you want. State your objective in a concise manner.<br/><br/>
+2. Don’t just list your job skills. List real problems you solved and the measurable results you achieved.<br/><br/>
+3. Showcase your strengths by citing key achievements, appointments or awards you’ve earned.<br/><br/>
+4. And of course, no errors! Have others proofread your resumes and cover letters.<br/><br/>
+
+			</font>
+		</td>
+	</tr>
+	
+</table>
+</td>
+	</tr>
+
+</table><br/>
+</td>
+	</tr>
+</table>
+
+<br/><br/><br/><br/>
