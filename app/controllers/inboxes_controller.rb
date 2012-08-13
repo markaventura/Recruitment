@@ -14,9 +14,9 @@ class InboxesController < ApplicationController
 
 	def create
 		@inbox = Inbox.new(params[:inbox])
-
 		if @inbox.save
-			redirect_to indexforhr_path, :notice => "message sent!"
+			InboxMailer.sigup_confirmation(@inbox).deliver
+			redirect_to @inbox, :notice => "message sent!"
 		else
 			render "new"
 		end

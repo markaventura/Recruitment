@@ -2,4 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
-	$('.best_in_place').best_in_place()
+	$('#basicinfo_industry_name').autocomplete
+	  source: $('#basicinfo_industry_name').data('autocomplete-source')
+

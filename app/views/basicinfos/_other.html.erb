@@ -1,0 +1,10 @@
+<%= form_for @basicinfo, :html=> { :multipart => true } do |profile| %>
+<tr>
+			<td align="right">
+				Position:
+			</td>
+			<td>
+				<%= profile.text_field :currentposition, :class => "tbox" %>
+			</td>
+		</tr>
+<% end %>

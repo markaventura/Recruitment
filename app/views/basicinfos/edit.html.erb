@@ -1,7 +1,14 @@
 <html>
 <head>
 	<title></title>
-	
+	<script type="text/javascript">
+		function optionChange(){
+		  	var change = document.getElementById("try").value;
+		  	alert("sds");
+		  	document.getElementById("div1").style.display = 'block';
+
+		  }
+	</script>
 </head>
 <body>
 <table class="shadow13" width="970" border="0" cellpading="0" cellspacing="0">
@@ -64,22 +71,28 @@
 				<%= profile.text_field :lastname, :class => "tbox" %>
 			</td>
 		</tr>
-		<tr>
-			<td align="right">
-				Position:
-			</td>
-			<td>
-				<%= profile.text_field :currentposition, :class => "tbox" %>
-			</td>
-		</tr>
+		
 		<tr>
 			<td align="right">
 				Industry:
 			</td>
 			<td>
-				<%= profile.select :industry, Myindustry::MYINDUSTRY %>
+
+				<%= profile.select :industry, Myindustry::MYINDUSTRY, {},
+{:onchange => "optionChange()", :id => "try"} %><br/>
+
+<%= profile.select :industry, Myindustry::MYINDUSTRY, {},
+{:onchange => "optionChange()", :id => "try"} %><br/>
 			</td>
 		</tr>
+		<tr>
+		  <td>
+		    <div id="div1" style="display:none">
+				<%= profile.text_field :currentposition, :class => "tbox" %>
+				<%= render "other" %>
+			</div>
+		  </td>
+		</tr>	
 		<tr>
 			<td>
 			<%= profile.hidden_field :user_id, :value => current_employee.id %>
@@ -87,7 +100,8 @@
 			<td>
 			<font size="2"><%= profile.submit "Save Changes", :class => "submit" %> or <%= link_to "Go back to Edit My Profile", empprofiles_path %>
 			</td>
-		</tr>	
+		</tr>
+		
 </table>
 	
 <% end %>

@@ -36,4 +36,16 @@ class EducationsController < ApplicationController
 		@education.destroy
 		redirect_to empprofiles_path, :notice => "The information has been successfully updated."
 	end
+
+	def show
+		@educations = Education.all
+
+		respond_to do |format|
+			format.html
+			format.pdf do
+				pdf = EducationPdf.new
+				send_data pdf.render, filename: "Employee.pdf", type: "application/pdf", disposition: "inline"
+			end
+		end
+	end
 end

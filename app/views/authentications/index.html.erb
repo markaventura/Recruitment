@@ -15,7 +15,7 @@
     <th>Provider</th>
     <th>Uid</th>
   </tr>
-  <% for authentication in @authentications %>
+  <% @authentications.each do |authentication| %>
     <tr>
       <td><%= authentication.employee_id %></td>
       <td><%= authentication.provider %></td>

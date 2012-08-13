@@ -3,4 +3,13 @@ class Basicinfo < ActiveRecord::Base
 
   has_attached_file :photo
   belongs_to :empprofiles
+  belongs_to :basicinfos
+
+  def industry_name
+  	basicinfos.try(:industry)
+  end
+
+  def industry_name=(name)
+  	self.basicinfos = Basicinfos.find_by_industry(name) if name.present?
+  end
 end

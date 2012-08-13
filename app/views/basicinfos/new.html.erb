@@ -99,6 +99,7 @@
 			</td>
 			<td>
 				<%= profile.select :industry, Myindustry::MYINDUSTRY, :class => "drop" %>
+				<%= profile.text_field :industry_name, data: {autocomplete_source: Basicinfo.order(:industry).map(&:industry)} %>
 			</td>
 		</tr>
 </table>

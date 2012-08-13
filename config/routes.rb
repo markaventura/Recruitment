@@ -82,13 +82,14 @@ Recruitment::Application.routes.draw do
       get 'showresume'
       
       post 'showresume'
+
+      get 'testing'
     end
   end
 
   resources :empprofiles do
     member do
       post 'new'
-     
     end
 
   end  

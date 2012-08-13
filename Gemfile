@@ -15,7 +15,8 @@ gem 'omniauth-twitter'
 gem 'omniauth', :git => 'https://github.com/intridea/omniauth.git'
 gem 'omniauth-linkedin', :git => 'https://github.com/skorks/omniauth-linkedin.git'
 gem "nifty-generators", :group => :development
-
+gem 'linkedin-scraper'
+gem 'linkedin'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

@@ -5,8 +5,15 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+<%= javascript_include_tag :defaults %>
+<%= csrf_meta_tag %>
+  	
+<script type="text/javascript" src="//platform.linkedin.com/in.js">
+  api_key: gjdmnasx5r07
+  authorize: true
+</script>
 </head>
-<body>
+
 <div id="vc-main">
 	<div id="vc-body">
 		<div align="center" class="container">
@@ -14,6 +21,9 @@
 			<tr>
 				<td width="900px">
 				<font face="arial">
+					<body>
+	<script type="IN/Login" data-onAuth="loadData">
+</script><div id="profile"></div>
 				<%= yield %>
 				</font>
 				</td>

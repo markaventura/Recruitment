@@ -1,5 +1,10 @@
 class EmpprofilesController < ApplicationController
+
+	
+	
 	def index
+		@authentications = current_employee.authentications if current_employee
+
 		@empprofiles = Empprofile.all
 		@basicinfos = Basicinfo.all
 		@summaries = Summary.all
@@ -49,9 +54,11 @@ class EmpprofilesController < ApplicationController
 	end
 
 	def create
+
 		@empprofile = Empprofile.new(params[:empprofile])
 
 		if @empprofile.save
+			UserMailer.signup_confirmation(@empprofiles).deliver
 			redirect_to empprofiles_path, :notice => "your post was saved"
 		else
 			render "new"
