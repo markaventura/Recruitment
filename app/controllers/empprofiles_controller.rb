@@ -14,7 +14,7 @@ class EmpprofilesController < ApplicationController
 		@additionalinformations = Additionalinformation.all
 		@othereducations = Othereducation.all
 		if (current_employee!=nil)
-@inboxes = Inbox.where(:user_id => current_employee.id.to_s)
+			@inboxes = Inbox.where(:user_id => current_employee.id.to_s)
 		end
 		
 	end

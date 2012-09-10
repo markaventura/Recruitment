@@ -9,3 +9,5 @@ jQuery ->
 		iDisplayLength: 200
 
 	$('.best_in_place').best_in_place()
+
+	$('#myModal').modal(options)

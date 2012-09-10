@@ -18,3 +18,4 @@
 //= require dataTables/jquery.dataTables
 //= require_tree .
 
+$('#myModal').modal(options)

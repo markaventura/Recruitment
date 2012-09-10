@@ -1,6 +1,6 @@
 class EducationPdf < Prawn::Document
   def initialize
   	super
-  	text "Tae"
+  	text "PDF Testing"
   end
 end
