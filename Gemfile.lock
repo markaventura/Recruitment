@@ -128,7 +128,7 @@ GEM
     nifty-generators (0.4.6)
     nokogiri (1.5.5)
     ntlm-http (0.1.1)
-    oauth (0.4.6)
+    oauth (0.5.6)
     omniauth-oauth (1.0.1)
       oauth
       omniauth (~> 1.0)
