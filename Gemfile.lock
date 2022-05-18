@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/rweng/jquery-datatables-rails.git
-  revision: 535d355c85d3a79984cfe310b22aeb9ca05252e6
-  specs:
-    jquery-datatables-rails (1.10.0)
-      jquery-rails
-
-GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: 8110922ed6cb55d2d9d780b36256fef05342b493
   specs:
@@ -23,6 +16,16 @@ GIT
     omniauth (1.1.0)
       hashie (~> 1.2)
       rack
+
+GIT
+  remote: https://github.com/rweng/jquery-datatables-rails.git
+  revision: d486b31b192a2924b1913e080ad23460e6b96d31
+  specs:
+    jquery-datatables-rails (3.4.0)
+      actionpack (>= 3.1)
+      jquery-rails
+      railties (>= 3.1)
+      sass-rails
 
 GIT
   remote: https://github.com/skorks/omniauth-linkedin.git
@@ -120,13 +123,16 @@ GEM
       webrobots (~> 0.0, >= 0.0.9)
     metaclass (0.0.1)
     mime-types (1.19)
+    mini_portile2 (2.8.0)
     mocha (0.12.1)
       metaclass (~> 0.0.1)
     multi_json (1.3.6)
     net-http-digest_auth (1.2.1)
     net-http-persistent (2.7)
     nifty-generators (0.4.6)
-    nokogiri (1.5.5)
+    nokogiri (1.13.6)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     ntlm-http (0.1.1)
     oauth (0.4.6)
     omniauth-oauth (1.0.1)
@@ -144,6 +150,7 @@ GEM
     prawn (0.12.0)
       pdf-reader (>= 0.9.0)
       ttfunk (~> 1.0.2)
+    racc (1.6.0)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
