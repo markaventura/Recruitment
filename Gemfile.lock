@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/rweng/jquery-datatables-rails.git
-  revision: 535d355c85d3a79984cfe310b22aeb9ca05252e6
-  specs:
-    jquery-datatables-rails (1.10.0)
-      jquery-rails
-
-GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: 8110922ed6cb55d2d9d780b36256fef05342b493
   specs:
@@ -23,6 +16,16 @@ GIT
     omniauth (1.1.0)
       hashie (~> 1.2)
       rack
+
+GIT
+  remote: https://github.com/rweng/jquery-datatables-rails.git
+  revision: d486b31b192a2924b1913e080ad23460e6b96d31
+  specs:
+    jquery-datatables-rails (3.4.0)
+      actionpack (>= 3.1)
+      jquery-rails
+      railties (>= 3.1)
+      sass-rails
 
 GIT
   remote: https://github.com/skorks/omniauth-linkedin.git
@@ -76,6 +79,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.3.3)
+    concurrent-ruby (1.1.10)
     devise (2.1.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -91,7 +95,8 @@ GEM
     gmaps4rails (1.5.2)
     hashie (1.2.0)
     hike (1.2.1)
-    i18n (0.6.0)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     journey (1.0.4)
     jquery-rails (2.0.2)
       railties (>= 3.2.0, < 5.0)
