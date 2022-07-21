@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/rweng/jquery-datatables-rails.git
-  revision: 535d355c85d3a79984cfe310b22aeb9ca05252e6
-  specs:
-    jquery-datatables-rails (1.10.0)
-      jquery-rails
-
-GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: 8110922ed6cb55d2d9d780b36256fef05342b493
   specs:
@@ -23,6 +16,16 @@ GIT
     omniauth (1.1.0)
       hashie (~> 1.2)
       rack
+
+GIT
+  remote: https://github.com/rweng/jquery-datatables-rails.git
+  revision: d486b31b192a2924b1913e080ad23460e6b96d31
+  specs:
+    jquery-datatables-rails (3.4.0)
+      actionpack (>= 3.1)
+      jquery-rails
+      railties (>= 3.1)
+      sass-rails
 
 GIT
   remote: https://github.com/skorks/omniauth-linkedin.git
@@ -185,7 +188,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     ttfunk (1.0.3)
-    tzinfo (0.3.33)
+    tzinfo (0.3.61)
     uglifier (1.2.6)
       execjs (>= 0.3.0)
       multi_json (~> 1.3)
